@@ -7,9 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "SPNFCReaderController.h"
 
 @interface AppDelegate ()
-
+@property SPNFCReaderController* nfcReader;
 @end
 
 @implementation AppDelegate
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _nfcReader = [SPNFCReaderController new];
     return YES;
 }
 

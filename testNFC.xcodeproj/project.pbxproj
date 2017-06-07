@@ -14,6 +14,7 @@
 		38A51F6E1EE7E5DC000560EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38A51F6D1EE7E5DC000560EE /* Assets.xcassets */; };
 		38A51F711EE7E5DC000560EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38A51F6F1EE7E5DC000560EE /* LaunchScreen.storyboard */; };
 		38A51F741EE7E5DC000560EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A51F731EE7E5DC000560EE /* main.m */; };
+		38A51F7C1EE7E629000560EE /* SPNFCReaderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A51F7B1EE7E629000560EE /* SPNFCReaderController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,10 @@
 		38A51F701EE7E5DC000560EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38A51F721EE7E5DC000560EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38A51F731EE7E5DC000560EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		38A51F7A1EE7E629000560EE /* SPNFCReaderController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPNFCReaderController.h; sourceTree = "<group>"; };
+		38A51F7B1EE7E629000560EE /* SPNFCReaderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPNFCReaderController.m; sourceTree = "<group>"; };
+		38A51F7E1EE7E9A4000560EE /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
+		38A51F7F1EE7FA3D000560EE /* testNFC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testNFC.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +51,7 @@
 			children = (
 				38A51F601EE7E5DC000560EE /* testNFC */,
 				38A51F5F1EE7E5DC000560EE /* Products */,
+				38A51F7D1EE7E9A4000560EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +66,7 @@
 		38A51F601EE7E5DC000560EE /* testNFC */ = {
 			isa = PBXGroup;
 			children = (
+				38A51F7F1EE7FA3D000560EE /* testNFC.entitlements */,
 				38A51F611EE7E5DC000560EE /* AppDelegate.h */,
 				38A51F621EE7E5DC000560EE /* AppDelegate.m */,
 				38A51F641EE7E5DC000560EE /* ViewController.h */,
@@ -70,8 +77,18 @@
 				38A51F721EE7E5DC000560EE /* Info.plist */,
 				38A51F731EE7E5DC000560EE /* main.m */,
 				38A51F6A1EE7E5DC000560EE /* testNFC.xcdatamodeld */,
+				38A51F7A1EE7E629000560EE /* SPNFCReaderController.h */,
+				38A51F7B1EE7E629000560EE /* SPNFCReaderController.m */,
 			);
 			path = testNFC;
+			sourceTree = "<group>";
+		};
+		38A51F7D1EE7E9A4000560EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38A51F7E1EE7E9A4000560EE /* CoreNFC.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,6 +122,11 @@
 				TargetAttributes = {
 					38A51F5D1EE7E5DC000560EE = {
 						CreatedOnToolsVersion = 9.0;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -145,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38A51F661EE7E5DC000560EE /* ViewController.m in Sources */,
+				38A51F7C1EE7E629000560EE /* SPNFCReaderController.m in Sources */,
 				38A51F631EE7E5DC000560EE /* AppDelegate.m in Sources */,
 				38A51F741EE7E5DC000560EE /* main.m in Sources */,
 				38A51F6C1EE7E5DC000560EE /* testNFC.xcdatamodeld in Sources */,
@@ -277,7 +300,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = testNFC/testNFC.entitlements;
 				DEVELOPMENT_TEAM = RXQYSEQFQ9;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = testNFC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.saltoplus.testNFC;
@@ -290,7 +315,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = testNFC/testNFC.entitlements;
 				DEVELOPMENT_TEAM = RXQYSEQFQ9;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = testNFC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.saltoplus.testNFC;
